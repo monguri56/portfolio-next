@@ -24,3 +24,102 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Fullpage base */
+.fullpage {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.fullpage-track {
+  height: 100vh;
+  transition: transform 0.7s ease;
+}
+
+.fullpage-section {
+  height: 100vh;
+  width: 100%;
+}
+
+/* Pagination dots */
+.pagination {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 100;
+}
+
+.pagination button {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid #999;
+  background: transparent;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: #999;
+}
+
+/* intro shadow */
+@keyframes introShadowIn {
+  from {
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  to {
+    opacity: 1;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.intro-shadow {
+  opacity: 0;
+  animation: introShadowIn 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.35s;
+}
+
+/* 공통 fade */
+@keyframes introFade {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 로고 */
+.intro-fade-logo {
+  opacity: 0;
+  animation: introFade 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.1s;
+}
+
+/* 문구 */
+.intro-fade-text {
+  opacity: 0;
+  animation: introFade 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.22s;
+}
+
+
+/* Featured 오른쪽 패널 스크롤바 */
+.featured-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.featured-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.featured-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 999px;
+}
