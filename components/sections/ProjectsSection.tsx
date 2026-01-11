@@ -30,8 +30,6 @@ export default function ClientWorkSection() {
     { key: "development", label: "Development" },
   ];
 
-  // ✅ 캡쳐 12개 전부 데이터로 등록
-  // (필터는 category로, 밑줄 링크는 bullet.href로 제어)
   const projects: Project[] = useMemo(
     () => [
       
@@ -43,9 +41,9 @@ export default function ClientWorkSection() {
         bullets: [
           { text: "서브 페이지 디자인" },
           { text: "반응형 퍼블리싱" },
-          { text: "투어 게시판 커스텀", href: "/projects/sample-01/tour-board" },
+          { text: "투어 게시판 커스텀", href: "https://alleytour.com/home/kkirikkiri_1gil" },
         ],
-        websiteUrl: "https://example.com",
+        websiteUrl: "https://alleytour.com/home/",
       },
       {
         id: "client-02",
@@ -55,21 +53,33 @@ export default function ClientWorkSection() {
         bullets: [
           { text: "반응형 퍼블리싱" },
           {
-            text: "연혁/제품/카탈로그/문의하기 게시판 커스텀",
-            href: "/projects/sample-02/boards",
+            text: "연혁 게시판 커스텀",
+            href: "https://www.autrol.com/kr/history",
+          },
+          {
+            text: "제품 게시판 커스텀",
+            href: "https://www.autrol.com/kr/pressure/",
+          },
+          {
+            text: "카탈로그 게시판 커스텀",
+            href: "https://www.autrol.com/kr/catalogue",
+          },
+          {
+            text: "문의하기 게시판 커스텀",
+            href: "https://www.autrol.com/kr/inquiry",
           },
         ],
-        websiteUrl: "https://example.com",
+        websiteUrl: "https://www.autrol.com",
       },
       {
         id: "client-03",
         title: "블로그형 콘텐츠 사이트 (그누보드 기반 반응형)",
-        category: ["design"],
+        category: ["development"],
         thumb: "/projects/sample-03.png",
         bullets: [
-          { text: "메인페이지 게시판 형태", href: "/projects/sample-03/main-board" },
+          { text: "메인페이지 게시판 형태"},
         ],
-        websiteUrl: "https://example.com",
+        websiteUrl: "https://dev.cube-eye.co.kr/support/index.php",
       },
       {
         id: "client-04",
@@ -79,9 +89,9 @@ export default function ClientWorkSection() {
         bullets: [
           { text: "메인/제품 페이지 디자인" },
           { text: "반응형 퍼블리싱" },
-          { text: "제품 게시판 커스텀", href: "/projects/sample-04/product-board" },
+          { text: "제품 게시판 커스텀", href: "http://healingsound.kr/home/bbs/board.php?bo_table=kr_pro_02&wr_id=1" },
         ],
-        websiteUrl: "https://example.com",
+        websiteUrl: "http://healingsound.kr",
       },
       {
         id: "client-05",
@@ -90,9 +100,10 @@ export default function ClientWorkSection() {
         thumb: "/projects/sample-05.png",
         bullets: [
           { text: "반응형 퍼블리싱" },
-          { text: "제품/자료실 게시판 커스텀", href: "/projects/sample-05/library-board" },
+          { text: "제품 게시판 커스텀", href: "http://www.atlk.co.kr/home/pro" },
+          { text: "자료실 게시판 커스텀", href: "http://www.atlk.co.kr/home/case_01" },
         ],
-        websiteUrl: "https://example.com",
+        websiteUrl: "http://www.atlk.co.kr",
       },
       {
         id: "client-06",
@@ -102,9 +113,9 @@ export default function ClientWorkSection() {
         bullets: [
           { text: "서브 페이지 디자인" },
           { text: "반응형 퍼블리싱" },
-          { text: "제품 게시판 커스텀", href: "/projects/sample-06/product-board" },
+          { text: "제품 게시판 커스텀", href: "https://sunwooglobal.co.kr/home/bbs/board.php?bo_table=pro05_02&wr_id=1" },
         ],
-        websiteUrl: "https://example.com",
+        websiteUrl: "https://sunwooglobal.co.kr",
       },
       {
         id: "client-07",
@@ -113,9 +124,9 @@ export default function ClientWorkSection() {
         thumb: "/projects/sample-07.png",
         bullets: [
           { text: "반응형 퍼블리싱" },
-          { text: "제품 게시판 커스텀", href: "/projects/sample-07/product-board" },
+          { text: "제품 게시판 커스텀", href: "http://dcseng.co.kr/home/bbs/board.php?bo_table=pro_01&sca=%EC%98%A4%EB%B9%84%ED%83%88+%EC%88%98%EB%8F%99+%EC%9E%A5%EB%B9%84" },
         ],
-        websiteUrl: "https://example.com",
+        websiteUrl: "http://dcseng.co.kr",
       },
       {
         id: "client-08",
@@ -123,9 +134,10 @@ export default function ClientWorkSection() {
         category: ["development"],
         thumb: "/projects/sample-08.png",
         bullets: [
-          { text: "제품/문의하기 게시판 커스텀", href: "/projects/sample-08/inquiry-board" },
+          { text: "제품 게시판 커스텀", href: "http://www.witconintl.com/home/bbs/board.php?bo_table=procure01" },
+          { text: "문의하기 게시판 커스텀", href: "http://www.witconintl.com/home/bbs/board.php?bo_table=inquiry_test" },
         ],
-        websiteUrl: "https://example.com",
+        websiteUrl: "http://www.witconintl.com",
       },
 
       {
@@ -133,8 +145,8 @@ export default function ClientWorkSection() {
         title: "체험 예약 홈페이지 (그누보드 기반 반응형)",
         category: ["development"],
         thumb: "/projects/sample-09.png",
-        bullets: [{ text: "체험 예약 관리 커스텀", href: "/projects/sample-09/reservation" }],
-        websiteUrl: "https://example.com",
+        bullets: [{ text: "체험 예약 관리 커스텀", href: "https://www.xn--ob0bz2e28lwrgda258dg5cka.com/home/bbs/board.php?bo_table=booking_kr" }],
+        websiteUrl: "https://www.xn--ob0bz2e28lwrgda258dg5cka.com",
       },
       {
         id: "client-10",
@@ -145,7 +157,7 @@ export default function ClientWorkSection() {
           { text: "메인 배너/서브 페이지 디자인" },
           { text: "반응형 퍼블리싱" },
         ],
-        websiteUrl: "https://example.com",
+        websiteUrl: "https://www.psiplus.co.kr/home/",
       },
       {
         id: "client-11",
@@ -153,15 +165,112 @@ export default function ClientWorkSection() {
         category: ["development"],
         thumb: "/projects/sample-11.png",
         bullets: [{ text: "메인 페이지 반응형 퍼블리싱" }],
-        websiteUrl: "https://example.com",
+        websiteUrl: "https://bnrtech2023.cafe24.com/home/",
       },
       {
         id: "client-12",
         title: "기업 홈페이지 (그누보드 기반 반응형)",
-        category: ["development"],
+        category: ["design", "development"],
         thumb: "/projects/sample-12.png",
+        bullets: [
+          { text: "서브 페이지 디자인" },
+          { text: "반응형 퍼블리싱" }
+        ],
+        websiteUrl: "https://ienix.com/home/",
+      },
+      {
+        id: "client-13",
+        title: "기업 홈페이지 (그누보드 기반 반응형)",
+        category: ["design", "development"],
+        thumb: "/projects/sample-13.png",
+        bullets: [
+          { text: "서브 페이지 디자인" },
+          { text: "반응형 퍼블리싱" }
+        ],
+        websiteUrl: "http://www.jlcustoms.co.kr/home/",
+      },
+      {
+        id: "client-14",
+        title: "기업 홈페이지 (그누보드 기반 반응형)",
+        category: ["design", "development"],
+        thumb: "/projects/sample-14.png",
+        bullets: [
+          { text: "메인/서브 페이지 디자인" },
+          { text: "반응형 퍼블리싱" }
+        ],
+        websiteUrl: "https://www.godsauce.co.kr/home/",
+      },
+      {
+        id: "client-15",
+        title: "기업 홈페이지 (그누보드 기반 반응형)",
+        category: ["development"],
+        thumb: "/projects/sample-20.png",
         bullets: [{ text: "반응형 퍼블리싱" }],
-        websiteUrl: "https://example.com",
+        websiteUrl: "https://fourstec2025.mycafe24.com/home/",
+      },
+      {
+        id: "client-16",
+        title: "랜딩페이지",
+        category: ["design", "development"],
+        thumb: "/projects/sample-21.png",
+        bullets: [
+          { text: "랜딩페이지 디자인" },
+          { text: "반응형 퍼블리싱" }
+        ],
+        websiteUrl: "/projects/full-21.png",
+      },
+      {
+        id: "client-17",
+        title: "전자카탈로그",
+        category: ["design", "development"],
+        thumb: "/projects/sample-15.png",
+        bullets: [
+          { text: "전자카탈로그 디자인" },
+          { text: "퍼블리싱" }
+        ],
+        websiteUrl: "https://dxee.cafe24.com/e-cata/beaubeau_en/",
+      },
+      {
+        id: "client-18",
+        title: "전자카탈로그",
+        category: ["development"],
+        thumb: "/projects/sample-16.png",
+        bullets: [
+          { text: "퍼블리싱" }
+        ],
+        websiteUrl: "https://dxee.cafe24.com/e-cata/cox_kr/",
+      },
+      {
+        id: "client-19",
+        title: "전자카탈로그",
+        category: ["development"],
+        thumb: "/projects/sample-17.png",
+        bullets: [
+          { text: "퍼블리싱" }
+        ],
+        websiteUrl: "https://dxee.cafe24.com/e-cata/luxrobo_en/",
+      },
+      {
+        id: "client-20",
+        title: "전자카탈로그",
+        category: ["design", "development"],
+        thumb: "/projects/sample-18.png",
+        bullets: [
+          { text: "전자카탈로그 디자인" },
+          { text: "퍼블리싱" }
+        ],
+        websiteUrl: "https://dxee.cafe24.com/e-cata/shinhanelectronic_en/",
+      },
+      {
+        id: "client-21",
+        title: "전자카탈로그",
+        category: ["design", "development"],
+        thumb: "/projects/sample-19.png",
+        bullets: [
+          { text: "전자카탈로그 디자인" },
+          { text: "퍼블리싱" }
+        ],
+        websiteUrl: "https://dxee.cafe24.com/e-cata/sunwoo_en/",
       },
     ],
     []

@@ -20,10 +20,10 @@ export default function FeaturedSection() {
   const slides: Slide[] = useMemo(
     () => [
       {
-        id: "jeonju",
-        title: "Jeonju Tour Platform",
+        id: "project-a",
+        title: "project A",
         image: "/featured/project-01.png",
-        href: "/projects/jeonju",
+        href: "/projects/project-a",
         projectName: "전주 관광·투어 플랫폼 구축",
         background:
           "여행업 디지털 전환 사업을 통해 매칭데이터에서 업체와 컨택하여 진행한 프로젝트",
@@ -48,24 +48,46 @@ export default function FeaturedSection() {
       {
         id: "project-b",
         title: "Project B",
-        image: "/featured/project-01.png",
-        href: "/projects/project-b",
-        projectName: "프로젝트 B",
-        background: "프로젝트 배경 설명을 여기에 작성",
-        role: ["역할 1", "역할 2", "역할 3"],
-        highlights: ["하이라이트 1", "하이라이트 2"],
-        techStack: "Next.js, TypeScript, TailwindCSS",
+        image: "/featured/project-02.png",
+        href: "http://finesse.co.kr/home/",
+        projectName: "오토바이 아카데미 홈페이지",
+        background:
+          "퇴사 후 지인 소개로 진행한 외주 프로젝트",
+        role: [
+          "전체 페이지 UI/UX 구현",
+          "관리자 페이지 UI 구성",
+          "예약 관리 플러그인 적용 및 카카오 알림톡 연동",
+          "직접 소통하며 요구사항 정리 및 반영",
+          "디자이너와의 협업 및 커뮤니케이션 조율",
+        ],
+        highlights: [
+          "교육 과정별 예약 흐름에 맞춘 화면 구성 및 UX 기획",
+          "예약 완료·변경·취소 시 카카오 알림톡 자동 발송 연동",
+          "실제 운영 과정에서의 피드백 반영 및 기능 보완",
+        ],
+        techStack: "HTML, CSS, JavaScript, jQuery, PHP, MySQL, Kakao Bizmessage API",
       },
       {
         id: "project-c",
         title: "Project C",
-        image: "/featured/project-01.png",
-        href: "/projects/project-c",
-        projectName: "프로젝트 C",
-        background: "프로젝트 배경 설명을 여기에 작성",
-        role: ["역할 1", "역할 2"],
-        highlights: ["하이라이트 1", "하이라이트 2", "하이라이트 3"],
-        techStack: "React, Next.js",
+        image: "/featured/project-03.png",
+        href: "#",
+        projectName: "리조트 홈페이지 리뉴얼 (진행 중)",
+        background:
+          "정적 HTML 기반으로 제작되었던 리조트 메인 페이지를 바탕으로, UI/UX와 구조를 전면 개선하여 Next.js 기반의 실제 서비스 수준 리조트 사이트로 리뉴얼 중인 개인 프로젝트",
+        role: [
+          "전체 페이지 UI/UX 설계 및 구현",
+          "Next.js 기반 프로젝트 구조 설계",
+          "기존 정적 페이지의 컴포넌트화",
+          "반응형 및 접근성 개선",
+        ],
+        highlights: [
+          "정적 HTML 기반 리조트 페이지를 Next.js 환경으로 전환",
+          "공통 레이아웃 및 컴포넌트 구조 설계",
+          "실제 리조트 웹사이트를 가정한 정보 구조 및 사용자 흐름 개선",
+          "현재 진행 중인 프로젝트로 지속적인 기능 확장 예정",
+        ],
+        techStack: "React, Next.js, TypeScript, Tailwind CSS",
       },
     ],
     []
@@ -158,7 +180,6 @@ export default function FeaturedSection() {
               onPointerUp={onPointerUp}
               className="relative overflow-hidden select-none touch-pan-y"
             >
-              {/* Prev/Next 버튼 (스샷처럼 이미지 양옆 중앙) */}
               <button
                 type="button"
                 onClick={prev}

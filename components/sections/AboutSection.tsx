@@ -28,19 +28,19 @@ export default function AboutSection() {
                 {/* 버튼 2개 */}
                 <div className="mt-10 w-full space-y-4">
                   <a
-                    href="/pdf/about.pdf"
-                    download
-                    className="h-14 w-full flex items-center justify-center bg-zinc-300 text-zinc-800 text-sm hover:bg-zinc-400 transition"
-                  >
-                    about (PDF)
-                  </a>
-
-                  <a
                     href="/pdf/resume.pdf"
                     download
                     className="h-14 w-full flex items-center justify-center bg-zinc-300 text-zinc-800 text-sm hover:bg-zinc-400 transition"
                   >
-                    resume (PDF)
+                    이력서 PDF
+                  </a>
+
+                  <a
+                    href="/pdf/employment.pdf"
+                    download
+                    className="h-14 w-full flex items-center justify-center bg-zinc-300 text-zinc-800 text-sm hover:bg-zinc-400 transition"
+                  >
+                    경력증명서 PDF
                   </a>
                 </div>
 
