@@ -288,7 +288,7 @@ export default function ClientWorkSection() {
 
   return (
     <div className="h-full w-full bg-white flex items-center justify-center">
-      <div className="w-full max-w-[1440px] px-10">
+      <div className="w-full max-w-[1500px] px-10">
         {/* 필터 */}
         <div className="flex items-center gap-10 text-sm">
           {tabs.map((t) => {
@@ -397,13 +397,14 @@ function ProjectCard({ p }: { p: Project }) {
           {/* Website Link */}
           {p.websiteUrl ? (
             <div className="mt-6 flex justify-end">
+              {/* <span aria-hidden>🔗 </span> */}
               <a
                 href={p.websiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-zinc-800 underline underline-offset-4"
               >
-                <span aria-hidden>🔗</span>
+                
                 Website Link
               </a>
             </div>

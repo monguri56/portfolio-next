@@ -4,14 +4,16 @@ import { useEffect, useRef, useState } from "react";
 
 type Options = {
   total: number;
-  duration?: number;   // 애니메이션 ms
-  threshold?: number;  // 휠 민감도 컷
+  duration?: number;
+  threshold?: number;
+  enabled?: boolean; 
 };
 
 export default function useFullPageScroll({
   total,
   duration = 700,
   threshold = 20,
+  enabled = true, 
 }: Options) {
   const [index, setIndex] = useState(0);
   const lockRef = useRef(false);
@@ -32,14 +34,13 @@ export default function useFullPageScroll({
   };
 
   useEffect(() => {
+    if (!enabled) return; 
+
     const onWheel = (e: WheelEvent) => {
-      // 이동 중이면 무시
       if (lockRef.current) return;
 
-      // 트랙패드 미세 스크롤 컷
       if (Math.abs(e.deltaY) < threshold) return;
 
-      // 아래/위 판단
       const isDown = e.deltaY > 0;
 
       lockRef.current = true;
@@ -57,8 +58,10 @@ export default function useFullPageScroll({
     };
 
     window.addEventListener("wheel", onWheel, { passive: true });
+
     return () => window.removeEventListener("wheel", onWheel);
-  }, [total, duration, threshold]);
+
+  }, [total, duration, threshold, enabled]);
 
   return { index, setIndex: goTo, goTo };
 }
