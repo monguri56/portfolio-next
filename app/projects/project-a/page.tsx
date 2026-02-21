@@ -218,9 +218,9 @@ export default function ProjectAPage() {
             </h2>
 
             {/* summary */}
-            <p className="text-sm text-zinc-600 mb-4">
-              {current.summary}
-            </p>
+{"summary" in current && current.summary ? (
+  <p className="text-sm text-zinc-600 mb-4">{current.summary}</p>
+) : null}
 
             {/* links */}
             <div className="flex justify-end gap-2 mb-6">
