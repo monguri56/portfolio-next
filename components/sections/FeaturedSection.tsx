@@ -156,22 +156,25 @@ export default function FeaturedSection() {
         id: "ondo-diary",
         title: "온도일기",
         image: "/featured/project-03.png",
-        projectName: "ondo-diary",
+        projectName: "온도일기",
         background:
-          "오늘의 날씨, 온도, 옷차림, 사진, 메모를 함께 기록하는 모바일 중심 다이어리 앱입니다. 날씨 앱과 일기 앱의 목적을 결합해, 이후 비슷한 온도의 날에 실제 옷차림 기록을 다시 참고할 수 있도록 설계했습니다.",
+          "현재 위치의 실시간 날씨, 온도, 시간대에 따라 배경 그라데이션이 바뀌고, 사용자가 그날의 옷차림과 사진을 기록하는 모바일 다이어리 앱입니다. 비슷한 온도의 과거 기록을 추천해 오늘 입을 옷을 고르는 데 참고할 수 있도록 설계했습니다.",
         role: [
-          "모바일 앱 전체 UI/UX 설계 및 구현",
-          "Expo Router 기반 홈/기록 화면 라우팅 구성",
-          "SQLite 기반 일기 저장 구조 설계",
-          "위치 권한 요청 및 Open-Meteo 날씨 API 연동",
-          "이미지 선택, 로컬 저장, 온도 워터마크 공유 기능 구현",
+          "기획 및 모바일 UI/UX 설계",
+          "React Native / Expo 기반 프론트엔드 구현",
+          "로컬 데이터 저장 구조 설계",
+          "위치 권한 및 Open-Meteo 날씨 API 연동",
+          "이미지 업로드 및 공유용 온도 워터마크 기능 구현",
+          "실시간 날씨에 반응하는 그라데이션과 글래스모피즘 UI 구성",
         ],
         highlights: [
-          "현재 위치 기반 온도 및 날씨 조회",
-          "사진, 메모, 온도, 날씨를 포함한 날짜별 일기 저장",
-          "연/월/주 캘린더 기반 기록 탐색",
+          "실시간 위치 기반 날씨/온도 조회",
+          "시간대, 날씨, 온도에 따라 변화하는 동적 배경",
+          "오늘의 옷차림 사진과 메모 기록",
+          "월간/주간/연간 캘린더 기록 탐색",
           "비슷한 온도의 과거 기록 추천",
-          "SQLite와 로컬 파일 시스템 기반 퍼시스턴스",
+          "공유 이미지에 온도 워터마크 자동 삽입",
+          "로딩, 홈, 다이어리 화면의 통일된 모바일 UI",
         ],
         techStack: [
           "React Native",
@@ -185,6 +188,7 @@ export default function FeaturedSection() {
           "Expo Image Picker",
           "Open-Meteo API",
         ],
+        links: [{ label: "Website", href: "https://github.com/monguri56/ondo-diary" }],
         sections: [],
       },
       {
@@ -611,99 +615,100 @@ function OndoDiaryLowerDetail() {
   const architecture = [
     { label: "App", value: "React Native + Expo", tone: "text-sky-600" },
     { label: "Route", value: "Home / Diary", tone: "text-violet-600" },
-    { label: "Device", value: "Location / Image Picker", tone: "text-emerald-600" },
-    { label: "Storage", value: "SQLite / FileSystem", tone: "text-slate-700" },
     { label: "Weather", value: "Open-Meteo API", tone: "text-orange-600" },
+    { label: "Theme", value: "Dynamic Gradient", tone: "text-pink-600" },
+    { label: "Storage", value: "Local DB / FileSystem", tone: "text-slate-700" },
   ];
 
   const routeGroups = [
     {
       title: "home",
       color: "border-sky-500 text-sky-700",
-      items: ["현재 날씨", "온도별 옷차림 추천", "오늘 기록", "유사 온도 기록"],
+      items: ["실시간 날씨", "동적 배경", "옷차림 추천", "유사 온도 기록"],
     },
     {
       title: "diary",
       color: "border-violet-500 text-violet-700",
-      items: ["연간 캘린더", "월간 캘린더", "주간 캘린더", "오늘 기록 저장"],
+      items: ["오늘 사진", "메모 저장", "연간 캘린더", "월간/주간 탐색"],
     },
     {
-      title: "local data",
+      title: "share",
       color: "border-emerald-500 text-emerald-700",
-      items: ["날짜별 일기", "앱 내부 이미지", "샘플 기록", "공유용 워터마크"],
+      items: ["이미지 보존", "온도 워터마크", "공유 이미지", "로컬 기록"],
     },
   ];
 
   const projectStructure = [
-    ["app/(tabs)/index.tsx", "현재 날씨, 오늘 기록, 옷차림 추천, 유사 기록 추천"],
-    ["app/(tabs)/diary.tsx", "연/월/주 캘린더와 오늘 사진/메모 저장"],
-    ["lib/diary-db.ts", "SQLite 기반 날짜별 일기 CRUD와 샘플 데이터 시딩"],
-    ["lib/image-files.ts", "선택 이미지를 앱 문서 디렉터리에 복사해 영구 저장"],
-    ["lib/location.ts", "위치 권한 요청과 좌표 조회"],
-    ["lib/weather.ts", "Open-Meteo 기반 현재/일별 날씨 조회"],
+    ["app/(tabs)/index.tsx", "오늘의 날씨, 옷차림 추천, 비슷한 온도 기록 카드"],
+    ["app/(tabs)/diary.tsx", "오늘 사진/메모 저장과 연/월/주 캘린더 탐색"],
+    ["lib/weather.ts", "Open-Meteo 기반 현재 온도, 날씨 코드, 일별 날씨 조회"],
+    ["lib/location.ts", "Expo Location 기반 위치 권한 요청과 좌표 조회"],
+    ["lib/weather-background.ts", "시간대, 날씨, 온도 기준 공통 그라데이션 계산"],
+    ["lib/diary-db.ts", "날짜별 기록 로컬 DB 저장과 조회"],
+    ["lib/image-files.ts", "선택 이미지를 앱 내부 저장소에 보존"],
   ];
 
   const recordFlow = [
-    "앱 실행",
-    "위치 권한 요청",
-    "현재 위치 기반 날씨 조회",
-    "온도별 옷차림 추천 확인",
-    "기록 화면에서 오늘 날짜 선택",
-    "사진과 메모 저장",
-    "홈에서 오늘 기록과 유사 온도 기록 확인",
+    "앱 실행 시 현재 위치 권한 요청",
+    "현재 온도, 날씨 코드, 시간대 조회",
+    "날씨 조건에 맞는 배경 그라데이션 계산",
+    "홈 화면에서 오늘의 날씨와 옷차림 추천 확인",
+    "다이어리 화면에서 오늘 사진과 메모 저장",
+    "캘린더에서 날짜별 기록 확인",
+    "홈 화면에서 비슷한 온도의 과거 기록 추천 확인",
   ];
 
   const dataFlow = [
-    "이미지 선택",
-    "앱 내부 문서 디렉터리로 복사",
-    "날짜, 온도, 날씨, 메모, 이미지 경로 저장",
-    "SQLite에서 날짜 기준 조회",
-    "현재 온도와 가까운 기록 필터링",
-    "온도 워터마크 이미지 공유",
+    "Expo Location으로 좌표 조회",
+    "Open-Meteo API에서 날씨 데이터 수신",
+    "공통 유틸에서 그라데이션 테마 산출",
+    "사진 파일을 앱 내부 저장소에 보존",
+    "로컬 DB에 날짜, 온도, 메모, 이미지 경로 저장",
+    "현재 온도와 가까운 기록을 가로 스크롤 카드로 노출",
   ];
 
   const implementationCards = [
     {
-      title: "기록 중심 UX",
+      title: "Weather UI",
       tone: "border-sky-500 text-sky-700",
-      items: ["모바일 우선", "오늘 기록 우선", "캘린더 탐색", "상단 액션"],
+      items: ["실시간 날씨", "시간대 반영", "동적 그라데이션", "글래스모피즘"],
     },
     {
-      title: "로컬 퍼시스턴스",
+      title: "Diary UX",
       tone: "border-emerald-500 text-emerald-700",
-      items: ["SQLite CRUD", "파일 복사 저장", "재실행 유지", "샘플 시딩"],
+      items: ["오늘 기록", "사진 업로드", "메모 저장", "캘린더 탐색"],
     },
     {
-      title: "온도 기반 추천",
+      title: "Recommendation",
       tone: "border-orange-500 text-orange-700",
-      items: ["현재 온도 비교", "유사 기록 추출", "옷차림 회고", "공유 이미지"],
+      items: ["온도 비교", "과거 기록", "가로 카드", "워터마크 공유"],
     },
   ];
 
   const troubleshooting = [
     {
-      title: "이미지 URI 지속성",
-      asIs: "이미지 피커가 반환한 URI만 저장하면 앱 재실행이나 원본 위치 변경 후 기록 이미지가 깨질 수 있었습니다.",
-      toBe: "선택한 이미지를 앱 내부 문서 디렉터리에 복사하고, SQLite에는 복사된 파일 경로를 저장했습니다.",
-      next: "다음 단계에서는 이미지 정리 정책과 클라우드 백업을 함께 설계해 저장 공간과 동기화를 관리할 계획입니다.",
+      title: "동적 배경 일관성",
+      asIs: "로딩, 홈, 다이어리 화면마다 배경 기준이 다르면 같은 날씨에서도 화면 톤이 달라질 수 있었습니다.",
+      toBe: "시간대, 날씨 코드, 온도에 따라 그라데이션을 계산하는 공통 유틸을 분리해 세 화면이 같은 기준을 사용하도록 구성했습니다.",
+      next: "날씨 상태별 색상 토큰을 더 세분화하면 흐림, 비, 맑음 같은 상태 전환을 더 자연스럽게 표현할 수 있습니다.",
     },
     {
-      title: "날씨 호출 위치",
-      asIs: "일부 날씨 조회 로직이 화면 내부에 있어 화면 책임과 데이터 요청 책임이 섞일 여지가 있었습니다.",
-      toBe: "위치와 날씨 유틸리티를 분리해 권한 요청, 좌표 조회, API 호출의 역할을 나눴습니다.",
-      next: "캐싱 전략을 추가해 같은 날짜와 위치의 날씨 요청을 줄이고 오프라인 UX도 보강할 수 있습니다.",
+      title: "로컬 기록 지속성",
+      asIs: "사진 URI만 저장하면 원본 위치가 바뀌거나 앱을 다시 실행했을 때 이미지가 유지되지 않을 수 있었습니다.",
+      toBe: "이미지 파일은 앱 내부 저장소에 보존하고, 기록 데이터는 로컬 DB에 저장해 날짜별로 다시 조회할 수 있게 했습니다.",
+      next: "계정 기반 백업이나 클라우드 동기화를 붙이면 여러 기기에서도 같은 기록을 이어볼 수 있습니다.",
     },
     {
-      title: "캘린더 탐색 밀도",
-      asIs: "연/월/주 보기가 모두 필요해 화면이 정보 과밀해질 수 있었습니다.",
-      toBe: "날짜 선택은 캘린더에 모으고, 실제 작성은 오늘 날짜 중심으로 제한해 기록 흐름을 단순화했습니다.",
-      next: "기록이 많아지면 온도대 필터나 계절별 모아보기로 탐색 방식을 확장할 수 있습니다.",
+      title: "공유 이미지 맥락",
+      asIs: "사진만 공유하면 그날의 날씨나 온도 맥락이 함께 전달되지 않았습니다.",
+      toBe: "공유 이미지 생성 시 현재 온도 워터마크를 자동으로 삽입해 기록의 핵심 정보를 한 장에 담았습니다.",
+      next: "날씨 아이콘, 날짜, 메모 일부를 선택적으로 포함하는 공유 템플릿으로 확장할 수 있습니다.",
     },
   ];
 
   const versionPlan = [
-    ["현재 범위", "위치 기반 날씨 조회, 날짜별 기록 저장, 캘린더 탐색, 유사 온도 추천, 워터마크 공유"],
-    ["다음 버전", "날씨 캐싱, 기록 검색/필터, 이미지 저장소 정리, 계정 기반 백업, 클라우드 동기화"],
+    ["현재 범위", "실시간 날씨 조회, 동적 배경, 사진/메모 기록, 캘린더 탐색, 유사 온도 추천, 온도 워터마크 공유"],
+    ["다음 버전", "날씨 캐싱, 기록 검색/필터, 공유 템플릿 확장, 이미지 저장소 정리, 계정 기반 백업"],
   ];
 
   return (
@@ -711,7 +716,7 @@ function OndoDiaryLowerDetail() {
       <CaseSection
         eyebrow="Architecture"
         title="앱 구조"
-        description="화면, 로컬 데이터, 디바이스 기능, 날씨 조회를 역할별로 분리해 모바일 기록 앱의 기본 흐름을 정리했습니다."
+        description="Expo Router 기반으로 홈과 다이어리 화면을 나누고, 날씨 조회와 배경 그라데이션 계산, 로컬 기록 저장을 역할별로 분리했습니다."
       >
         <div className="grid gap-6 xl:grid-cols-[1fr_0.9fr]">
           <div className="grid gap-5">
@@ -745,11 +750,11 @@ function OndoDiaryLowerDetail() {
               <p>Mobile UI</p>
               <p className="pl-4">↓</p>
               <p>Expo Router</p>
-              <p className="pl-4">├─ home weather / recommendation</p>
-              <p className="pl-4">├─ diary calendar / editor</p>
-              <p className="pl-4">└─ share image / watermark</p>
+              <p className="pl-4">├─ loading / home / diary</p>
+              <p className="pl-4">├─ weather gradient utility</p>
+              <p className="pl-4">└─ calendar / similar records / share</p>
               <p className="pl-8">↓</p>
-              <p className="pl-4">SQLite + FileSystem</p>
+              <p className="pl-4">Local DB + FileSystem</p>
               <p className="pl-8">↓</p>
               <p className="pl-4">Open-Meteo / Device APIs</p>
             </div>
@@ -759,11 +764,11 @@ function OndoDiaryLowerDetail() {
             <InfoTable title="주요 파일" rows={projectStructure} />
             <ChipPanel
               title="핵심 데이터"
-              items={["date", "temperature", "weather", "outfit memo", "image uri"]}
+              items={["date", "temperature", "weather code", "time zone", "memo", "image uri"]}
             />
             <ChipPanel
-              title="디바이스 연동"
-              items={["location permission", "image picker", "local document directory"]}
+              title="화면 톤"
+              items={["dynamic gradient", "glassmorphism", "mobile unified UI", "loading/home/diary"]}
             />
           </div>
         </div>
@@ -772,7 +777,7 @@ function OndoDiaryLowerDetail() {
       <CaseSection
         eyebrow="Flow"
         title="기록 플로우"
-        description="사용자가 오늘의 날씨를 확인하고 기록을 남긴 뒤, 비슷한 온도의 과거 기록을 다시 참고하는 흐름으로 설계했습니다."
+        description="위치 권한 요청부터 날씨 기반 배경 계산, 오늘 기록 저장, 유사 온도 기록 추천, 워터마크 공유까지 이어지는 흐름입니다."
       >
         <div className="grid auto-rows-fr gap-4 lg:grid-cols-3">
           {implementationCards.map((flow) => (
@@ -793,12 +798,12 @@ function OndoDiaryLowerDetail() {
           <FlowColumn title="사용자 플로우" items={recordFlow} />
           <FlowColumn title="데이터 플로우" items={dataFlow} />
           <div className="h-full border border-zinc-200 p-5">
-            <h5 className="text-lg font-semibold text-zinc-950">추천 기준</h5>
+            <h5 className="text-lg font-semibold text-zinc-950">홈 추천</h5>
             <div className="mt-4 grid auto-rows-fr gap-3">
               {[
-                ["현재 온도", "위치 기반 날씨 API에서 받은 온도를 기준값으로 사용"],
-                ["과거 기록", "SQLite에 저장된 날짜별 온도와 비교"],
-                ["유사 기록", "온도 차이가 작은 기록을 홈 화면 추천 영역에 노출"],
+                ["현재 온도", "Open-Meteo에서 받은 현재 온도를 기준값으로 사용"],
+                ["과거 기록", "로컬 DB에 저장된 날짜별 기록 온도와 비교"],
+                ["가로 카드", "비슷한 온도의 과거 기록을 홈 화면 가로 스크롤 카드로 추천"],
               ].map(([title, desc], index) => (
                 <div key={title} className="grid min-h-[86px] grid-cols-[34px_1fr] gap-3 border border-zinc-200 bg-zinc-50 p-3">
                   <span className="text-xs font-semibold text-zinc-400">
@@ -818,7 +823,7 @@ function OndoDiaryLowerDetail() {
       <CaseSection
         eyebrow="Implementation"
         title="구현 판단"
-        description="모바일 기록 앱에서 실제 사용성을 좌우하는 저장 지속성, API 책임 분리, 캘린더 탐색 밀도를 중심으로 정리했습니다."
+        description="실시간 날씨에 반응하는 화면 톤, 로컬 기록 지속성, 공유 이미지의 맥락 전달을 중심으로 구현했습니다."
       >
         <div className="grid gap-4 xl:grid-cols-3">
           {troubleshooting.map((item) => (
@@ -838,25 +843,25 @@ function OndoDiaryLowerDetail() {
       <CaseSection
         eyebrow="Retrospective"
         title="회고"
-        description="날씨 정보 자체보다 이후 다시 참고할 수 있는 개인 옷차림 기록을 만드는 데 집중했습니다."
+        description="날씨 앱의 정보성과 다이어리 앱의 기록성을 결합해, 오늘 입을 옷을 고르는 데 다시 참고할 수 있는 경험을 만드는 데 집중했습니다."
       >
         <div className="grid gap-4 lg:grid-cols-2">
           <TextList
             title="좋았던 점"
             items={[
               "온도와 실제 옷차림을 연결해 재사용 가능한 개인 기록으로 설계",
-              "이미지를 앱 내부 파일로 보관해 기록의 지속성을 확보",
-              "SQLite 기반 날짜 저장으로 앱 재실행 후에도 기록이 유지되도록 구현",
-              "상단 액션 중심 이동으로 감성적인 기록 앱 분위기와 사용 흐름을 맞춤",
+              "날씨, 온도, 시간대에 반응하는 그라데이션으로 앱의 시각 콘셉트를 통일",
+              "글래스모피즘 UI로 로딩, 홈, 다이어리 화면의 모바일 톤을 맞춤",
+              "사진과 메모를 로컬 기록으로 저장하고 캘린더에서 다시 탐색할 수 있게 구성",
             ]}
           />
           <TextList
             title="개선점"
             items={[
-              "날씨 조회 모듈의 책임을 더 명확히 분리",
               "현재 위치와 날짜 기준 날씨 캐싱 추가",
-              "클라우드 동기화와 계정 기반 백업으로 여러 기기 사용 지원",
-              "기록이 많아졌을 때 온도대/계절별 필터 추가",
+              "기록 검색과 온도대/계절별 필터 강화",
+              "공유 이미지 템플릿 다양화",
+              "계정 기반 백업으로 여러 기기 사용 지원",
             ]}
           />
           <div className="lg:col-span-2">
