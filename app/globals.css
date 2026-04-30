@@ -26,6 +26,25 @@ body {
   font-family: Pretendard, sans-serif;
 }
 
+button,
+[role="button"],
+a[href],
+label,
+summary,
+select,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  cursor: pointer !important;
+}
+
+button:disabled,
+[aria-disabled="true"],
+input:disabled,
+select:disabled {
+  cursor: not-allowed !important;
+}
+
 /* Fullpage base */
 .fullpage {
   height: 100vh;

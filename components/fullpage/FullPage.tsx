@@ -41,6 +41,28 @@ export default function FullPage({
     enabled: isDesktop, 
   });
 
+  useEffect(() => {
+    if (!isDesktop) return;
+
+    const hashToIndex: Record<string, number> = {
+      "#intro": 0,
+      "#about": 1,
+      "#featured": 2,
+      "#works": 3,
+    };
+
+    const syncHash = () => {
+      const nextIndex = hashToIndex[window.location.hash];
+      if (typeof nextIndex === "number") {
+        goTo(nextIndex);
+      }
+    };
+
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, [goTo, isDesktop]);
+
   if (!isDesktop) {
     return (
       <main className="w-full">

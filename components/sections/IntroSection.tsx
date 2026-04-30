@@ -9,31 +9,24 @@ export default function IntroSection() {
         className="
           relative
           aspect-square
-
           w-[85vw]
           sm:w-[70vw]
           md:w-[60vw]
           lg:w-[520px]
           xl:w-[600px]
-
           rounded-full
           bg-white
-
           flex flex-col items-center justify-center text-center
-
           intro-shadow
         "
       >
-        {/* logo */}
         <div
           className="
             relative
-
             w-[160px] h-[90px]
             sm:w-[200px] sm:h-[110px]
             md:w-[240px] md:h-[130px]
             lg:w-[260px] lg:h-[140px]
-
             intro-fade-logo
           "
         >
@@ -46,24 +39,18 @@ export default function IntroSection() {
           />
         </div>
 
-        {/* text */}
         <p
           className="
-            mt-4 sm:mt-6 md:mt-7
-
-            px-6 sm:px-8 md:px-10
-
+            mt-5 sm:mt-6
+            px-7 sm:px-10
             text-[13px]
             sm:text-[14px]
             md:text-[15px]
-            lg:text-[16px]
-
             leading-6
             sm:leading-7
-            md:leading-8
-
+            font-light
+            tracking-[0.02em]
             text-zinc-700
-
             intro-fade-text
           "
         >
