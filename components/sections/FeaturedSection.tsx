@@ -40,19 +40,19 @@ const helaxStack = [
 ];
 
 const helaxRoles = [
-  "Next App Router 기반 퍼블릭/관리자 라우트 분리 설계",
+  "Next App Router 기반 사용자/관리자 화면 구성",
   "객실 목록, 상세, 예약 생성, 마이페이지 예약 조회 구현",
-  "관리자 객실 등록/수정/삭제, 예약 상태 변경, 공지 관리 화면 구성",
-  "Prisma 모델링과 Route Handler 기반 REST API 작성",
-  "bcrypt 로그인/회원가입과 localStorage 기반 사용자 상태 관리 구성",
+  "관리자 객실 등록/수정/삭제, 예약 상태 변경, 공지 관리 화면 구현",
+  "Prisma 모델링과 Route Handler 기반 CRUD API 작성",
+  "bcrypt 로그인/회원가입과 사용자 상태 관리 구성",
 ];
 
 const helaxRetrospectives = [
-  "정적 호텔 소개 페이지를 실제 예약 흐름을 가진 풀스택 서비스로 확장",
-  "퍼블릭 예약 경험과 관리자 운영 경험을 분리해 서비스 구조를 명확히 정리",
-  "예약 중복 검증, 객실 활성화, 공지 고정 등 운영에 필요한 규칙을 데이터 모델에 반영",
-  "MUI 기반 폼/카드/테이블 컴포넌트로 관리자 화면의 조작성을 확보",
-  "Vercel 배포까지 완료하며 로컬 개발 결과를 외부에서 확인 가능한 상태로 정리",
+  "객실 조회에서 예약 생성까지 이어지는 기본 예약 흐름을 직접 구현",
+  "사용자 화면과 관리자 화면을 분리하며 서비스 구조를 정리",
+  "예약 중복 검증, 객실 활성화, 공지 고정 같은 운영 규칙을 데이터 모델에 반영",
+  "MUI 기반 폼/카드/테이블 컴포넌트로 관리자 화면을 구성",
+  "Vercel 배포까지 진행하며 로컬 개발 결과를 실제 URL로 확인 가능한 상태로 정리",
 ];
 
 const helaxProjectStatus = [
@@ -134,7 +134,7 @@ const helaxPortfolioStack = [
 ];
 
 const helaxPortfolioRoles = [
-  "리조트 예약 서비스 도메인 설계",
+  "리조트 예약 서비스 구조 설계",
   "객실, 예약, 리뷰, 공지, 사용자 모델링",
   "사용자 화면과 관리자 콘솔 분리",
   "객실 검색/필터/상세/예약 플로우 구현",
@@ -158,7 +158,7 @@ export default function FeaturedSection() {
         image: "/featured/project-03.png",
         projectName: "HELAX 1.0 ver",
         background:
-          "객실 조회, 예약, 리뷰, 공지, 관리자 콘솔까지 구현한 Next.js 기반 리조트 예약 풀스택 웹 서비스입니다.",
+          "객실 조회, 예약, 리뷰, 공지, 관리자 콘솔을 구현한 Next.js 기반 리조트 예약 웹 서비스입니다.",
         role: helaxPortfolioRoles,
         highlights: helaxPortfolioHighlights,
         techStack: helaxPortfolioStack,
@@ -168,7 +168,7 @@ export default function FeaturedSection() {
             eyebrow: "Tech Stack",
             title: "역할별 기술 구성",
             summary:
-              "프론트엔드, UI, 서버, 데이터베이스, 인증/운영 도구를 역할별로 나눠 구성했습니다.",
+              "화면, 서버 API, 데이터베이스, 인증을 프로젝트 역할에 맞춰 구성했습니다.",
             table: [
               { label: "Frontend", value: "Next.js 16 App Router, React 19, TypeScript" },
               { label: "UI / Styling", value: "MUI, MUI Icons, Emotion, CSS Modules, global CSS, Tailwind CSS 4 설정" },
@@ -182,7 +182,7 @@ export default function FeaturedSection() {
             eyebrow: "Architecture",
             title: "App Router 기반 풀스택 구조",
             summary:
-              "사용자 페이지, 관리자 페이지, API Route Handler를 라우트 그룹과 폴더 역할에 맞춰 분리했습니다.",
+              "사용자 페이지, 관리자 페이지, API Route Handler를 폴더 역할에 맞춰 나눠 구현했습니다.",
             table: [
               { label: "app/(public)", value: "메인, 객실 목록/상세, 로그인/회원가입, 마이페이지, 커뮤니티/공지" },
               { label: "app/(admin)", value: "관리자 대시보드, 객실 관리, 예약 관리, 공지 관리" },
@@ -197,7 +197,7 @@ export default function FeaturedSection() {
             eyebrow: "Service Flow",
             title: "사용자/관리자/예약 생성 흐름",
             summary:
-              "예약 서비스의 핵심 흐름을 사용자, 관리자, 예약 생성 단계로 나눠 정리했습니다.",
+              "예약 서비스에서 필요한 사용자 흐름과 관리자 관리 흐름을 각각 구현했습니다.",
             table: [
               { label: "사용자", value: "회원가입/로그인 -> 객실 목록 조회 -> 검색/인원/가격 필터링 -> 객실 상세 -> 날짜/인원 선택 -> 예약 생성 -> 마이페이지 조회/취소 -> 리뷰 작성" },
               { label: "관리자", value: "관리자 로그인 -> AdminAccessGuard 권한 확인 -> 대시보드 확인 -> 객실 등록/수정/삭제 -> 예약 상태 변경 -> 공지 등록/수정/삭제 및 상단 고정" },
@@ -222,7 +222,7 @@ export default function FeaturedSection() {
             eyebrow: "Retrospective",
             title: "좋았던 점과 개선점",
             summary:
-              "구현하며 잘 정리된 지점과 실서비스 기준으로 보완할 지점을 분리했습니다.",
+              "처음부터 끝까지 구현해 보며 정리한 점과 다음에 보완할 점입니다.",
             split: [
               {
                 title: "좋았던 점",
@@ -977,11 +977,11 @@ function HelaxLowerDetail() {
       title: "예약 날짜 중복 검증",
       asIs: "클라이언트에서 날짜와 금액을 계산하면 동일 객실에 겹치는 예약이 들어올 수 있었습니다.",
       toBe: "Route Handler에서 체크인/체크아웃 범위, 객실 활성화, 최대 인원, 기존 예약 겹침 여부를 다시 검증했습니다.",
-      next: "트래픽이 늘어나는 버전에서는 트랜잭션 범위와 락 전략을 추가해 동시성 안정성을 높일 계획입니다.",
+      next: "동시에 예약을 시도하는 상황을 고려해 트랜잭션 처리와 테스트 코드를 보완할 계획입니다.",
     },
     {
       title: "인증 및 관리자 권한",
-      asIs: "현재 v1은 UserContext/localStorage와 클라이언트 가드 중심이라 포트폴리오 데모에는 충분하지만 보안 한계가 있습니다.",
+      asIs: "현재 v1은 UserContext/localStorage와 클라이언트 가드 중심이라 새로고침 후 상태 유지는 가능하지만 보안 한계가 있습니다.",
       toBe: "관리자 화면은 AdminAccessGuard로 분리하고, bcrypt 기반 로그인/회원가입과 사용자 상태 관리를 구성했습니다.",
       next: "다음 버전에서는 HttpOnly 쿠키, 세션/JWT, API 레벨 ADMIN 검증으로 권한 체계를 보강할 예정입니다.",
     },
@@ -1058,7 +1058,7 @@ function HelaxLowerDetail() {
       <CaseSection
         eyebrow="Flow"
         title="서비스 플로우"
-        description="화면 이동 흐름은 짧게, 서버 검증 흐름은 단계별로 보여 면접에서 설명하기 쉽도록 정리했습니다."
+        description="사용자가 객실을 찾고 예약하는 흐름과 관리자가 예약을 처리하는 흐름을 나눠 정리했습니다."
       >
         <div className="grid auto-rows-fr gap-4 lg:grid-cols-3">
           {serviceFlowCards.map((flow) => (
@@ -1100,7 +1100,7 @@ function HelaxLowerDetail() {
       <CaseSection
         eyebrow="Troubleshooting"
         title="트러블슈팅"
-        description="대규모 백엔드 사례처럼 과장하지 않고, HELAX v1에서 실제로 설명 가능한 문제와 다음 개선 방향을 AS-IS / TO-BE로 정리했습니다."
+        description="HELAX v1을 구현하면서 마주친 문제와 해결한 내용을 AS-IS / TO-BE로 정리했습니다."
       >
         <div className="grid gap-4 xl:grid-cols-3">
           {troubleshooting.map((item) => (
@@ -1120,7 +1120,7 @@ function HelaxLowerDetail() {
       <CaseSection
         eyebrow="Retrospective"
         title="회고"
-        description="현재 v1에서 구현한 성과와 다음 버전에서 보완할 지점을 분리했습니다."
+        description="현재 v1에서 구현한 내용과 다음 버전에서 보완하고 싶은 지점을 정리했습니다."
       >
         <div className="grid gap-4 lg:grid-cols-2">
           <TextList
