@@ -155,10 +155,10 @@ export default function FeaturedSection() {
       {
         id: "ondo-diary",
         title: "온도일기",
-        image: "/featured/project-03.png",
+        image: "/featured/project-04.png",
         projectName: "온도일기",
         background:
-          "현재 위치의 실시간 날씨, 온도, 시간대에 따라 배경 그라데이션이 바뀌고, 사용자가 그날의 옷차림과 사진을 기록하는 모바일 다이어리 앱입니다. 비슷한 온도의 과거 기록을 추천해 오늘 입을 옷을 고르는 데 참고할 수 있도록 설계했습니다.",
+          "현재 위치의 실시간 날씨, 온도, 시간대에 따라 배경 그라데이션이 바뀌고, 사용자가 그날의 옷차림과 사진을 기록하는 모바일 다이어리 앱입니다. 비슷한 온도의 과거 기록을 추천해 오늘 입을 옷을 고르는 데 참고할 수 있도록 설계했으며, Vercel 배포 버전으로 확인할 수 있습니다.",
         role: [
           "기획 및 모바일 UI/UX 설계",
           "React Native / Expo 기반 프론트엔드 구현",
@@ -175,20 +175,17 @@ export default function FeaturedSection() {
           "비슷한 온도의 과거 기록 추천",
           "공유 이미지에 온도 워터마크 자동 삽입",
           "로딩, 홈, 다이어리 화면의 통일된 모바일 UI",
+          "Vercel 배포 완료 및 앱스토어 배포 예정",
         ],
         techStack: [
           "React Native",
           "Expo",
           "TypeScript",
           "Expo Router",
-          "Expo SQLite",
-          "AsyncStorage",
-          "Expo FileSystem",
-          "Expo Location",
-          "Expo Image Picker",
           "Open-Meteo API",
+          "Vercel",
         ],
-        links: [{ label: "Website", href: "https://github.com/monguri56/ondo-diary" }],
+        links: [{ label: "Website", href: "https://ondo-diary.vercel.app/" }],
         sections: [],
       },
       {
@@ -617,7 +614,7 @@ function OndoDiaryLowerDetail() {
     { label: "Route", value: "Home / Diary", tone: "text-violet-600" },
     { label: "Weather", value: "Open-Meteo API", tone: "text-orange-600" },
     { label: "Theme", value: "Dynamic Gradient", tone: "text-pink-600" },
-    { label: "Storage", value: "Local DB / FileSystem", tone: "text-slate-700" },
+    { label: "Deploy", value: "Vercel / App Store 예정", tone: "text-slate-700" },
   ];
 
   const routeGroups = [
@@ -707,8 +704,8 @@ function OndoDiaryLowerDetail() {
   ];
 
   const versionPlan = [
-    ["현재 범위", "실시간 날씨 조회, 동적 배경, 사진/메모 기록, 캘린더 탐색, 유사 온도 추천, 온도 워터마크 공유"],
-    ["다음 버전", "날씨 캐싱, 기록 검색/필터, 공유 템플릿 확장, 이미지 저장소 정리, 계정 기반 백업"],
+    ["현재 범위", "실시간 날씨 조회, 동적 배경, 사진/메모 기록, 캘린더 탐색, 유사 온도 추천, 온도 워터마크 공유, Vercel 배포"],
+    ["다음 버전", "앱스토어 배포, 날씨 캐싱, 기록 검색/필터, 공유 템플릿 확장, 계정 기반 백업"],
   ];
 
   return (
@@ -757,6 +754,8 @@ function OndoDiaryLowerDetail() {
               <p className="pl-4">Local DB + FileSystem</p>
               <p className="pl-8">↓</p>
               <p className="pl-4">Open-Meteo / Device APIs</p>
+              <p className="pl-8">↓</p>
+              <p className="pl-4">Vercel deployed / App Store planned</p>
             </div>
           </div>
 
@@ -769,6 +768,10 @@ function OndoDiaryLowerDetail() {
             <ChipPanel
               title="화면 톤"
               items={["dynamic gradient", "glassmorphism", "mobile unified UI", "loading/home/diary"]}
+            />
+            <ChipPanel
+              title="배포"
+              items={["Vercel 배포 완료", "앱스토어 배포 예정"]}
             />
           </div>
         </div>
@@ -853,6 +856,7 @@ function OndoDiaryLowerDetail() {
               "날씨, 온도, 시간대에 반응하는 그라데이션으로 앱의 시각 콘셉트를 통일",
               "글래스모피즘 UI로 로딩, 홈, 다이어리 화면의 모바일 톤을 맞춤",
               "사진과 메모를 로컬 기록으로 저장하고 캘린더에서 다시 탐색할 수 있게 구성",
+              "Vercel 배포 버전으로 프로젝트를 바로 확인할 수 있게 정리",
             ]}
           />
           <TextList
@@ -862,6 +866,7 @@ function OndoDiaryLowerDetail() {
               "기록 검색과 온도대/계절별 필터 강화",
               "공유 이미지 템플릿 다양화",
               "계정 기반 백업으로 여러 기기 사용 지원",
+              "앱스토어 배포를 위한 빌드와 심사 준비",
             ]}
           />
           <div className="lg:col-span-2">
