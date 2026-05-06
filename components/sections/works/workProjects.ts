@@ -42,10 +42,10 @@ export const workProjects: WorkProject[] = [
     role: ["서브 페이지 디자인", "반응형 퍼블리싱", "투어 게시판 커스텀"],
     highlights: ["여행 상품 탐색 흐름 구성", "그누보드 기반 게시판 커스텀", "모바일 화면 대응"],
     links: [
-      { label: "사이트 보기", href: "https://alleytour.com/home/" },
-      { label: "투어 게시판", href: "https://alleytour.com/home/kkirikkiri_1gil" },
+      { label: "사이트 보기", href: "http://alleytour.com/home/" },
+      { label: "투어 게시판", href: "http://alleytour.com/home/kkirikkiri_1gil" },
     ],
-    websiteUrl: "https://alleytour.com/home/",
+    websiteUrl: "http://alleytour.com/home/",
   },
   {
     id: "client-02",
